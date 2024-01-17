@@ -1,37 +1,75 @@
-/*
-<div id="parent">
-  <div id="child1">
-    <h1>I am h1 tag</h1>
-    <h2>I am h2 tag</h2>
-  </div>
+import React from "react";
+import ReactDOM from "react-dom/client"
 
-  <div id="child2">
-    <h1>I'm h1 tag</h1>
-    <h2>I'm h2 tag</h2>
-  </div>
-</div>
-*/
+const Header = () => {
+   return(
+      <div className="header">
+         <div className="logo-container">
+            <img className="logo"
+               src="https://png.pngtree.com/png-clipart/20230106/original/pngtree-simple-and-modern-food-logo-vector-design-png-image_8876455.png"
+            />
+         </div>
+         <div className="nav-items">
+            <ul>
+               <li>Home</li>
+               <li>About Us</li>
+               <li>Contact Us</li>
+               <li>Cart</li>
+            </ul>
+         </div>
+      </div>
+   );
+};
 
-const parent = React.createElement("div", { id:"parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "I am h1 tag"), 
-    React.createElement("h2", {}, "I am h2 tag")
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "i'm h1 tag"),
-    React.createElement("h2", {}, "i'am h2 tag")
-  ])
-]);
+const RestaurantCard = () => {
+   return(
+      <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+         <img
+            className="res-logo"
+            alt="res-logo"
+            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/hambixuqvgnihazifudv"
+         />
+         <h3>Nishant Momos Hub</h3>
+         <h4>Momoms, Asian, Meggie</h4>
+         <h4>4.4</h4>
+         <h4>28 mins</h4>
+      </div>
+   );
+}
+const Body = () => {
+  return( 
+      <div className="body">
+         <div className="search">
+            <input placeHolder="Serach food"></input>
+            <button>Serach</button>
+         </div>
+         <div className="res-conatiner">
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+         </div>
+      </div>
+
+  );
+};
 
 
+const AppLayout  = () => {
+   return(
+      <div className="app">
+         <Header />
+         <Body />
+      </div>
+   );
+};
 
-const heading = React.createElement("h1", {}, "Hello From React");
-  
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//root.render(heading);
-
-//console.log(heading);
-
-root.render(parent);
-console.log(parent);
+root.render(<AppLayout />);
